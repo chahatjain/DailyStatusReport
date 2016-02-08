@@ -1,0 +1,144 @@
+﻿@model DailyStatusReport.Models.DailyStatusReportModel
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Daily Status Report</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script src="~/Scripts/DailyStatusReport.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="jumbotron">
+            <h1> Onlife Health Daily Status Report</h1>
+        </div>
+        <!-- Filling Form -->
+        <div class="row">
+            <form class="form-horizontal" role="form">
+                <div class="row">
+                    <div class="form-group">
+                        <label class="control-label col-sm-2" for="devName">Developer Name</label>
+                        <div class="col-sm-4">
+                            <input type="text" class="form-control" id="devName">
+                        </div>
+                        <div class="dropdown col-sm-4">
+                            <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" onclick="nameDropDown()">
+                                Developer Name
+                                <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu" id="nameDropDown">
+                                @for(int i = 0; i < (@Model.DevelopersName).Count; i++)
+                                {
+                                    <li><a href="#">@Model.DevelopersName[i]</a></li>
+                                }
+                            </ul>
+                        </div>
+                        <div>
+                            <button class="btn btn-success col-sm-1" type="button">Show Report</button>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="control-label col-sm-2" for="fixVersion">FixVersion</label>
+                        <div class="col-sm-4">
+                            <input type="text" class="form-control" id="fixVersion">
+                        </div>
+                        <div class="dropdown col-sm-3">
+                            <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" onclick="fixVersionDropDown()">
+                                Fix Version
+                                <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu" id="fixVersionDropDown">
+                                @for (int i = 0; i < (@Model.FixVersion).Count; i++)
+                                {
+                                    <li><a href="#">@Model.FixVersion[i]</a></li>
+                                }
+                            </ul>
+                            <br />
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="control-label col-sm-2" for="project">Project</label>
+                        <div class="col-sm-4">
+                            <input type="text" class="form-control" id="project">
+                        </div>
+                        <div class="dropdown col-sm-3">
+                            <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" onclick="projectDropDown()">
+                                Project
+                                <span class=" caret">
+                                </span>
+                            </button>
+                            <ul class="dropdown-menu" id="projectDropDown">
+                                @for (int i = 0; i < (@Model.ProjectName).Count; i++)
+                                {
+                                    <li><a href="#">@Model.ProjectName[i]</a></li>
+                                }
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-sm-2" for="ticket">Ticket Number</label>
+                        <div class="col-sm-4">
+                            <input type="text" class="form-control" id="ticketNumber" placeholder="Enter Ticket Number">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-sm-2" for="ticketDesc">Ticket Description</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="ticketDesc" placeholder="Enter Ticket Description">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-sm-2" for="status">Status</label>
+                        <div class="col-sm-4">
+                            <input type="text" class="form-control" id="status">
+                        </div>
+                        <div class="dropdown col-sm-3">
+                            <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" onclick="statusDropDown()">
+                                Status
+                                <span class=" caret">
+                                </span>
+                            </button>
+                            <ul class="dropdown-menu" id="statusDropDown">
+                                @for (int i = 0; i < (@Model.Status).Count; i++)
+                                {
+                                    <li><a href="#">@Model.Status[i]</a></li>
+                                }
+                            </ul>
+                            <br />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-sm-2" for="codeReview">Crucible ID</label>
+                        <div class="col-sm-2">
+                            <input type="text" class="form-control" id="codeReviewId" placeholder="Enter Crucible ID">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-sm-2" for="remark">Remark</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="remark" placeholder="Enter Remark if any">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-sm-2" for="blocker">Bloker</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="blocker" placeholder="Enter Bloker if any">
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <button type="submit" class="btn btn-danger col-sm-6" onclick="SaveDetails()">Submit</button>
+    </div>
+</body>
+</html>
+

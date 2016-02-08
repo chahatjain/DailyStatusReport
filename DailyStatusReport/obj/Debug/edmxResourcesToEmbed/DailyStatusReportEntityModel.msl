@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="DailyStatusReportModelStoreContainer" CdmEntityContainer="DailyStatusReportEntities">
+    <EntitySetMapping Name="tbl_dailyStatusReportData">
+      <EntityTypeMapping TypeName="DailyStatusReportModel.tbl_dailyStatusReportData">
+        <MappingFragment StoreEntitySet="tbl_dailyStatusReportData">
+          <ScalarProperty Name="StatusID" ColumnName="StatusID" />
+          <ScalarProperty Name="DeveloperName" ColumnName="DeveloperName" />
+          <ScalarProperty Name="FixVersion" ColumnName="FixVersion" />
+          <ScalarProperty Name="Project" ColumnName="Project" />
+          <ScalarProperty Name="TicketNumber" ColumnName="TicketNumber" />
+          <ScalarProperty Name="TicketDescription" ColumnName="TicketDescription" />
+          <ScalarProperty Name="TicketStatus" ColumnName="TicketStatus" />
+          <ScalarProperty Name="CrucibleId" ColumnName="CrucibleId" />
+          <ScalarProperty Name="Remark" ColumnName="Remark" />
+          <ScalarProperty Name="Blocker" ColumnName="Blocker" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
